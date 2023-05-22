@@ -34,7 +34,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Set up node with nvm
-        uses: dcodeIO/setup-node-nvm@v4
+        uses: dcodeIO/setup-node-nvm@v5
       - name: Yarn install
         run: yarn install
       - name: Yarn build
