@@ -22,9 +22,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
-env:
-  ISSUE_ID: 13
-
 jobs:
   # Build job
   build:
@@ -33,7 +30,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Output Issue ID
-        run: echo ${{ env.ISSUE_ID }}
+        run: echo ${{ vars.ISSUE_ID }}
       - name: Setup Pages
         uses: actions/configure-pages@v1
       - name: Set up node with nvm
@@ -50,7 +47,7 @@ jobs:
             const fs = require('fs')
             
             await github.paginate(github.rest.issues.listComments,
-              { owner: 'colindembovsky', repo: 'random-name-picker', issue_number: ${{ env.ISSUE_ID }} },
+              { owner: 'colindembovsky', repo: 'random-name-picker', issue_number: ${{ vars.ISSUE_ID }} },
               (response) => response.data.map((issuecomment) => issuecomment.user.login)
             )
             .then((commenters) => {
