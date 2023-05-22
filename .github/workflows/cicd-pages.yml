@@ -32,7 +32,7 @@ jobs:
       - name: Output Issue ID
         run: echo ${{ vars.ISSUE_ID }}
       - name: Setup Pages
-        uses: actions/configure-pages@v1
+        uses: actions/configure-pages@v3
       - name: Set up node with nvm
         uses: dcodeIO/setup-node-nvm@v4
       - name: Yarn install
@@ -77,4 +77,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2
